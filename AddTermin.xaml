@@ -17,8 +17,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Frame Background="#FFD5B504" Grid.RowSpan="3"/>
-        <Frame Background="#FFD5B504" Grid.Column="2" Grid.RowSpan="3"/>
+        <Frame Background="#FFA80000" Grid.RowSpan="3"/>
+        <Frame Background="#FF0404B2" Grid.Column="2" Grid.RowSpan="3"/>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Vorname" FontSize="10" FontWeight="Bold" Margin="10"/>
@@ -56,8 +56,8 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="10"/>
-            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Margin="10"/>
+            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Height="20" Width="90" Margin="10"/>
+            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="90"  FontSize="10" Margin="10"/>
         </StackPanel>
         
         
