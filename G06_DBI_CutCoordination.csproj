@@ -8,4 +8,22 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Src\assets\title_close.png" />
+    <None Remove="Src\assets\title_maximize.png" />
+    <None Remove="Src\assets\title_minimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Src\assets\title_close.png" />
+    <Resource Include="Src\assets\title_maximize.png" />
+    <Resource Include="Src\assets\title_minimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Src\datenbank\friseur.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
