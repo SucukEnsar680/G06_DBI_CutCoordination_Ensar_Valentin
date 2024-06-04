@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G06_DBI_CutCoordination"
         mc:Ignorable="d"
-        Title="AddTermin" Height="250" Width="600">
+        Title="AddTermin" Height="350" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -56,11 +56,12 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Height="20" Width="90" Margin="10"/>
-            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="90"  FontSize="10" Margin="10"/>
+            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Height="40" Width="170" Margin="10"/>
+            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="170"  FontSize="10" Margin="10"/>
         </StackPanel>
         
-        
+
+
     </Grid>
     
 </Window>
