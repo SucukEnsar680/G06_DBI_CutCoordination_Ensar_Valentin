@@ -20,5 +20,50 @@ namespace G06_DBI_CutCoordination
         {
             InitializeComponent();
         }
+
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
+
+        private void TitleMinimize_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+         
+		private void TitleMaximize_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+            if (WindowState == WindowState.Maximized) 
+            {
+                WindowState = WindowState.Normal;
+            }
+            else
+            {
+				WindowState = WindowState.Maximized;
+			}
+		}
+
+        private void TitleClose_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var AddTermin = new AddTermin();
+            AddTermin.ShowDialog();
+        }
     }
 }
