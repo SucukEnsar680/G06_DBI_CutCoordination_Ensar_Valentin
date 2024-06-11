@@ -30,5 +30,5 @@
 
 | Datum      | Arbeit                                        |
 |------------|-----------------------------------------------|
-|            |                                               |
+| 04.06.2024 |MainWindow designed und connection zu AddTerminWindow gemacht.|
 |            |                                               |

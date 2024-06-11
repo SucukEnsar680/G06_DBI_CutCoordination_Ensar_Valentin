@@ -31,9 +31,9 @@
         <Border Background="#F9B872" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="10,10,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Text="Friseur-Studios" Margin="0,0,600,0" FontSize="26" FontWeight="Bold"/>
-                <Image Source="/Src/assets/title_minimize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMinimize_MouseDown" Cursor="Hand"/>
-                <Image Source="/Src/assets/title_maximize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMaximize_MouseDown" Cursor="Hand"/>
-                <Image Source="/Src/assets/title_close.png" Width="30" Height="Auto" Margin="0,0,25,0" MouseDown="TitleClose_MouseDown" Cursor="Hand"/>
+                <Image Source="/assets/title_minimize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMinimize_MouseDown" Cursor="Hand"/>
+                <Image Source="/assets/title_maximize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMaximize_MouseDown" Cursor="Hand"/>
+                <Image Source="/assets/title_close.png" Width="30" Height="Auto" Margin="0,0,25,0" MouseDown="TitleClose_MouseDown" Cursor="Hand"/>
             </StackPanel>
         </Border>
 
