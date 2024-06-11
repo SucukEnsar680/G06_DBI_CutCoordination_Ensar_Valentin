@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
 
 namespace G06_DBI_CutCoordination
 {
@@ -14,5 +15,6 @@ namespace G06_DBI_CutCoordination
         public string Datum { get; set; }
         public string Uhrzeit { get; set; }
         public int Dauer { get; set; }
+        public int DienstID{ get; set; }
     }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
+
+
 
 namespace G06_DBI_CutCoordination
 {
@@ -10,7 +13,7 @@ namespace G06_DBI_CutCoordination
     {
 
 
-        public static Termin AddTermin(string vorname, string nachname, string telefonnummer, string datum, string uhrzeit, int dauer)
+        public static Termin AddTermin(string vorname, string nachname, string telefonnummer, string datum, string uhrzeit, int dauer, int dienstleistung)
         {
             Termin newTermin = new Termin
             {
@@ -19,17 +22,24 @@ namespace G06_DBI_CutCoordination
                 Telefonnummer = telefonnummer,
                 Datum = datum,
                 Uhrzeit = uhrzeit,
-                Dauer = dauer
+                Dauer = dauer,
+                DienstID = dienstleistung
             };
             return newTermin;
 
         }
             
             
-        }
+        
         public static void AddTerminToSql(Termin termin)
         {
-            //string path = "Data Source=database/friseur.db";
+            string path = "Data Source=database/friseur.db";
+            using (SqliteConnection connection = new SqliteConnection(path))
+            {
+
+                connection.Open();
+                
+            }
 
         }
     }
