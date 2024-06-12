@@ -23,5 +23,10 @@ namespace G06_DBI_CutCoordination
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, Datum.Text, Uhrzeit.Text, Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1);
+        }
     }
 }

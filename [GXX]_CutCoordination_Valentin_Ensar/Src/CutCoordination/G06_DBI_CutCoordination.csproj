@@ -33,4 +33,10 @@
     <Resource Include="assets\title_minimize.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="database\friseur.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
