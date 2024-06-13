@@ -40,7 +40,7 @@
         <Border Background="#B6E1E7" Grid.Row="1" Grid.RowSpan="4"  Grid.ColumnSpan="3" CornerRadius="0,0,10,10"/>
 
         <TextBlock Text="Special Information" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"  FontSize="18" Margin="0,20,0,130"/>
-        <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="10"/>
+        <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="10" x:Name="terminsBox"/>
         <Button Content="Hallo Welt1" Grid.Row="2" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="AddBtn_Click"/>
         <Button Content="Hallo Welt2" Grid.Row="3" Grid.Column="2" Margin="40,30,40,30" FontSize="20"/>
 

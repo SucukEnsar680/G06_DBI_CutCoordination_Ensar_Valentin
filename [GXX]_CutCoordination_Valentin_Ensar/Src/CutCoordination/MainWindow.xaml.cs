@@ -16,9 +16,11 @@ namespace G06_DBI_CutCoordination
     /// </summary>
     public partial class MainWindow : Window
     {
+        TerminList terminList = new TerminList();
         public MainWindow()
         {
             InitializeComponent();
+            terminList.Visualize(terminsBox);
         }
 
 
@@ -65,5 +67,7 @@ namespace G06_DBI_CutCoordination
             var AddTermin = new AddTermin();
             AddTermin.ShowDialog();
         }
+
+        
     }
 }
