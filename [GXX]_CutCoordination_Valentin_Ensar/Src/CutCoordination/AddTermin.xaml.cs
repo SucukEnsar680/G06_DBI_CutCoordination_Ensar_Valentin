@@ -26,7 +26,9 @@ namespace G06_DBI_CutCoordination
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, Datum.Text, Uhrzeit.Text, Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1);
+            DateTime datum = DateTime.Parse(Datum.Text);
+            TimeSpan uhrzeit = TimeSpan.Parse(Uhrzeit.Text);
+            TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, datum, uhrzeit, Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1);
         }
     }
 }

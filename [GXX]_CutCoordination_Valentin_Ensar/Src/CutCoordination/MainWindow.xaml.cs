@@ -20,7 +20,7 @@ namespace G06_DBI_CutCoordination
         public MainWindow()
         {
             InitializeComponent();
-            terminList.Visualize(terminsBox);
+            terminList.Visualize(terminsBox, info);
         }
 
 

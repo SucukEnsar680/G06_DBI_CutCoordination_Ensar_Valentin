@@ -12,14 +12,14 @@ namespace G06_DBI_CutCoordination
         public string Vorname { get; set; }
         public string Nachname { get; set; }
         public string Telefonnummer { get; set; }
-        public string Datum { get; set; }
-        public string Uhrzeit { get; set; }
+        public DateTime Datum { get; set; }
+        public TimeSpan Uhrzeit { get; set; }
         public int Dauer { get; set; }
         public int DienstID{ get; set; }
 
         public override string ToString()
         {
-            return $"{Vorname};{Dauer}";
+            return $"{Vorname};{Datum};{Uhrzeit}";
         }
     }
 }
