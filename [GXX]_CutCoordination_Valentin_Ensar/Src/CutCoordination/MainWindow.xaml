@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G06_DBI_CutCoordination"
+        xmlns:calendar ="clr-namespace:G06_DBI_CutCoordination.controls"
         mc:Ignorable="d"
         AllowsTransparency="True"
         Background="Transparent"
@@ -40,14 +41,15 @@
         <Border Background="#B6E1E7" Grid.Row="1" Grid.RowSpan="4"  Grid.ColumnSpan="3" CornerRadius="0,0,10,10"/>
 
         <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Margin="10">
-            <TextBlock Text="Special Information" HorizontalAlignment="Center" FontSize="18" Margin="20"/>
+            <TextBlock Text="Alle Termine" HorizontalAlignment="Center" FontSize="18" Margin="20"/>
             <TextBlock x:Name="info" Text="" Grid.Column="0" HorizontalAlignment="Center" FontSize="18"/>
         </StackPanel>
         
         <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="10" x:Name="terminsBox"/>
-        <Button Content="Hallo Welt1" Grid.Row="2" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="AddBtn_Click"/>
-        <Button Content="Hallo Welt2" Grid.Row="3" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="Button_Click"/>
+        <Button Content="Add" Grid.Row="2" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="AddBtn_Click"/>
+        <Button Content="Remove" Grid.Row="3" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="Button_Click"/>
 
+        <calendar:Calendar Grid.Row="1" Grid.Column="1" Margin="5" ButtonClicked="Calendar_ButtonClicked"/>
     </Grid>
 
 </Window>

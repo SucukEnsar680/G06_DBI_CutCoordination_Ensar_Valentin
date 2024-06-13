@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="G06_DBI_CutCoordination.controls.Calendar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:G06_DBI_CutCoordination.controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Background="DarkGray">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/assets/arrow_left.png" Grid.Row="0" Grid.Column="0" MouseDown="ArrowLeft_Click"/>
+            <Image Source="/assets/arrow_right.png" Grid.Row="0" Grid.Column="2" MouseDown="ArrowRight_Click"/>
+            <TextBlock Text="2024" FontSize="20" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="infoBox"/>
+
+            <Button Content="Jan" FontSize="16" Grid.Row="1" Grid.Column="0" Click="Button_Click"/>
+            <Button Content="Feb" FontSize="16" Grid.Row="2" Grid.Column="0" Click="Button_Click"/>
+            <Button Content="Mar" FontSize="16" Grid.Row="3" Grid.Column="0" Click="Button_Click"/>
+            <Button Content="Apr" FontSize="16" Grid.Row="4" Grid.Column="0" Click="Button_Click"/>
+
+            <Button Content="May" FontSize="16" Grid.Row="1" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="Jun" FontSize="16" Grid.Row="2" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="Jul" FontSize="16" Grid.Row="3" Grid.Column="1" Click="Button_Click"/>
+            <Button Content="Aug" FontSize="16" Grid.Row="4" Grid.Column="1" Click="Button_Click"/>
+
+            <Button Content="Sep" FontSize="16" Grid.Row="1" Grid.Column="2" Click="Button_Click"/>
+            <Button Content="Oct" FontSize="16" Grid.Row="2" Grid.Column="2" Click="Button_Click"/>
+            <Button Content="Nov" FontSize="16" Grid.Row="3" Grid.Column="2" Click="Button_Click"/>
+            <Button Content="Dec" FontSize="16" Grid.Row="4" Grid.Column="2" Click="Button_Click"/>
+
+        </Grid>
+    </Border>
+
+</UserControl>

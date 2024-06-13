@@ -81,5 +81,12 @@ namespace G06_DBI_CutCoordination
                 terminsBox.Items.RemoveAt(terminsBox.SelectedIndex);
             }
         }
-    }
+
+		private void Calendar_ButtonClicked(object sender, (string month, string year) e)
+		{
+			string currentMonth = e.month;
+			string currentYear = e.year;
+			MessageBox.Show($"Current Month: {currentMonth}, Current Year: {currentYear}");
+		}
+	}
 }
