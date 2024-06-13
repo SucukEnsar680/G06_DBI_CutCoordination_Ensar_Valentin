@@ -64,8 +64,12 @@ namespace G06_DBI_CutCoordination
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            var AddTermin = new AddTermin();
+            Window AddTermin = new AddTermin();
             AddTermin.ShowDialog();
+            if (AddTermin.ShowDialog() == true)
+            {
+                AddTermin.Close();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
