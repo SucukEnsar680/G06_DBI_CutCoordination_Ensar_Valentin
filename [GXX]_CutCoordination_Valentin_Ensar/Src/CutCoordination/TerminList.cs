@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -25,6 +26,17 @@ namespace G06_DBI_CutCoordination
                 box.Items.Add(termins[i].ToString());
             }
             info.Text = maxTermins.ToString();
+        }
+
+        public void RemoveItem(string item)
+        {
+            for(int i = 0; i < termins.Count; i++)
+            {
+                if (termins[i].ToString() == item)
+                {
+                    termins.RemoveAt(i);
+                }
+            }
         }
 
         public void SortToNextFit()

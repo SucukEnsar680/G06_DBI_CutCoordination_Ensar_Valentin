@@ -68,6 +68,14 @@ namespace G06_DBI_CutCoordination
             AddTermin.ShowDialog();
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(terminsBox.SelectedIndex != null)
+            {
+                string itemToRemove = terminsBox.SelectedIndex.ToString();
+                terminList.RemoveItem(itemToRemove);
+                terminsBox.Items.RemoveAt(terminsBox.SelectedIndex);
+            }
+        }
     }
 }

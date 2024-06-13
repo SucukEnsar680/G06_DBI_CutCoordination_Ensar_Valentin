@@ -19,7 +19,7 @@ namespace G06_DBI_CutCoordination
 
         public override string ToString()
         {
-            return $"{Vorname};{Datum};{Uhrzeit}";
+            return $"{Vorname};{Datum.ToString("dd.MM.yyyy")};{Uhrzeit}";
         }
     }
 }

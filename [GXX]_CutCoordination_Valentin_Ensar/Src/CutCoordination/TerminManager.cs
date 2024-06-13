@@ -39,9 +39,8 @@ namespace G06_DBI_CutCoordination
                             termin.Dauer = reader.GetInt32(6);
                             termin.DienstID = reader.GetInt32(7);
 
-                            TimeSpan timeSpan = TimeSpan.ParseExact(uhrzeitStr, "hh\\:mm\\:ss", CultureInfo.InvariantCulture);
                             termin.Datum = DateTime.Parse(dateStr);
-                            termin.Uhrzeit = timeSpan;
+                            termin.Uhrzeit = TimeSpan.Parse(uhrzeitStr);
                             
             
                             termins.Add(termin);

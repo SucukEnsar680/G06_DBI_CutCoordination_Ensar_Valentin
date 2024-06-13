@@ -46,7 +46,7 @@
         
         <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="10" x:Name="terminsBox"/>
         <Button Content="Hallo Welt1" Grid.Row="2" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="AddBtn_Click"/>
-        <Button Content="Hallo Welt2" Grid.Row="3" Grid.Column="2" Margin="40,30,40,30" FontSize="20"/>
+        <Button Content="Hallo Welt2" Grid.Row="3" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="Button_Click"/>
 
     </Grid>
 
