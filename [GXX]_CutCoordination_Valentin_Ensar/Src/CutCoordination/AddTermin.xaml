@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G06_DBI_CutCoordination"
         mc:Ignorable="d"
-        Title="AddTermin" Height="350" Width="700">
+        Title="AddTermin" Height="550" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -13,51 +13,58 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Frame Background="#FFA80000" Grid.RowSpan="3"/>
         <Frame Background="#FF0404B2" Grid.Column="2" Grid.RowSpan="3"/>
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Vorname" FontSize="10" FontWeight="Bold" Margin="10"/>
-                <TextBox x:Name="Vorname" FontSize="10" Margin="10"/>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Vorname" FontSize="20" FontWeight="Bold" Margin="10"/>
+                    <TextBox x:Name="Vorname" FontSize="20" Margin="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Nachname" FontSize="20" FontWeight="Bold" Margin="10"/>
+                    <TextBox x:Name="Nachname" FontSize="20" Margin="10"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Telefonnummer" FontSize="20" FontWeight="Bold" Margin="10"/>
+                    <TextBox x:Name="Telefonnummer" FontSize="20" Margin="10"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Nachname" FontSize="10" FontWeight="Bold" Margin="10"/>
-                <TextBox x:Name="Nachname" FontSize="10" Margin="10"/>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Uhrzeit" FontSize="20" FontWeight="Bold" Margin="10"/>
+                    <TextBox x:Name="Uhrzeit" FontSize="20" Margin="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Dauer" FontSize="20" FontWeight="Bold" Margin="10"/>
+                    <TextBox x:Name="Dauer" FontSize="20" Margin="10"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Dienstleistung" FontSize="20" FontWeight="Bold" Margin="10"/>
+                    <ComboBox x:Name="Dienstleistung" FontSize="20" Margin="10">
+                        <ComboBoxItem Content="Haarschnitt"/>
+                        <ComboBoxItem Content="Haarfarbe"/>
+                        <ComboBoxItem Content="Dauerwelle"/>
+                        <ComboBoxItem Content="Barttrimmen"/>
+                    </ComboBox>
+                </StackPanel>
             </StackPanel>
             
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="Telefonnummer" FontSize="10" FontWeight="Bold" Margin="10"/>
-                <TextBox x:Name="Telefonnummer" FontSize="10" Margin="10"/>
+                <TextBlock Text="Datum" FontSize="20" FontWeight="Bold" Margin="10"/>
+
+                <DatePicker x:Name="Datum" FontSize="20" Height="40" VerticalContentAlignment="Center" Width="373"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Datum" FontSize="10" FontWeight="Bold" Margin="10"/>
-                <TextBox x:Name="Datum" FontSize="10" Margin="10"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Uhrzeit" FontSize="10" FontWeight="Bold" Margin="10"/>
-                <TextBox x:Name="Uhrzeit" FontSize="10" Margin="10"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Dauer" FontSize="10" FontWeight="Bold" Margin="10"/>
-                <TextBox x:Name="Dauer" FontSize="10" Margin="10"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Dienstleistung" FontSize="10" FontWeight="Bold" Margin="10"/>
-                <ComboBox x:Name="Dienstleistung" FontSize="10" Margin="10">
-                    <ComboBoxItem Content="Haarschnitt"/>
-                    <ComboBoxItem Content="Haarfarbe"/>
-                    <ComboBoxItem Content="Dauerwelle"/>
-                    <ComboBoxItem Content="Barttrimmen"/>
-                </ComboBox>
-            </StackPanel>
+            
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Height="40" Width="170" Margin="10" Click="Button_Click"/>
-            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Width="170"  FontSize="10" Margin="10"/>
+            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Height="70" Width="200" Margin="10" Click="Button_Click"/>
+            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" Width="200"  FontSize="15" Margin="10"/>
         </StackPanel>
         
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Ribbon;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,7 +27,8 @@ namespace G06_DBI_CutCoordination
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, Datum.Text, Uhrzeit.Text, Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1);
+            TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, Datum.SelectedDate.Value.ToString("dd-MM-yyyy"), Uhrzeit.Text, Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1);
+            DialogResult = true;
         }
     }
 }
