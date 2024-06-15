@@ -36,7 +36,7 @@ namespace G06_DBI_CutCoordination
                             string dateStr = reader.GetString(4);
                             string uhrzeitStr = reader.GetString(5);
                             termin.Dauer = reader.GetInt32(6);
-                            termin.DienstID = reader.GetInt32(7);
+                            termin.Dienst = reader.GetInt32(7);
 
                             termin.Datum = DateTime.Parse(dateStr);
                             termin.Uhrzeit = TimeSpan.Parse(uhrzeitStr);
@@ -59,7 +59,7 @@ namespace G06_DBI_CutCoordination
                 Datum = datum,
                 Uhrzeit = uhrzeit,
                 Dauer = dauer,
-                DienstID = dienstleistung
+                Dienst = dienstleistung
             };
             AddTerminToSql(newTermin);
 
@@ -86,7 +86,7 @@ namespace G06_DBI_CutCoordination
                     command.Parameters.AddWithValue("@Datum", termin.Datum);
                     command.Parameters.AddWithValue("@Uhrzeit", termin.Uhrzeit);
                     command.Parameters.AddWithValue("@Dauer", termin.Dauer);
-                    command.Parameters.AddWithValue("@DienstID", termin.DienstID);
+                    command.Parameters.AddWithValue("@DienstID", termin.Dienst);
                     command.ExecuteNonQuery();
                 }
                 

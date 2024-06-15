@@ -23,11 +23,12 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        
 
+        <Border Background="#B6E1E7" Grid.Row="1" Grid.RowSpan="4"  Grid.ColumnSpan="3" CornerRadius="0,0,10,10"/>
+        
         <Border Background="#F9B872" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="10,10,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <TextBlock Text="Friseur-Studios" Margin="0,0,600,0" FontSize="26" FontWeight="Bold"/>
@@ -37,17 +38,24 @@
             </StackPanel>
         </Border>
 
-        <Border Background="#B6E1E7" Grid.Row="1" Grid.RowSpan="4"  Grid.ColumnSpan="3" CornerRadius="0,0,10,10"/>
-
-        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Margin="10">
-            <TextBlock Text="Alle Termine" HorizontalAlignment="Center" FontSize="18" Margin="20"/>
-            <TextBlock x:Name="info" Text="" Grid.Column="0" HorizontalAlignment="Center" FontSize="18"/>
-        </StackPanel>
         
-        <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="10" x:Name="terminsBox"/>
+        <Calendar Grid.Row="3" Grid.Column="0" Name="calendar" SelectedDatesChanged="calendar_SelectedDatesChanged"/>
+
+        <ListView Name="terminsView" Margin="10" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Uhrzeit" DisplayMemberBinding="{Binding Uhrzeit}" Width="70"/>
+                    <GridViewColumn Header="Dauer" DisplayMemberBinding="{Binding Dauer}" Width="70"/>
+                    <GridViewColumn Header="Vorname" DisplayMemberBinding="{Binding Vorname}" Width="80"/>
+                    <GridViewColumn Header="Nachname" DisplayMemberBinding="{Binding Nachname}" Width="80"/>
+                    <GridViewColumn Header="Telefonnummer" DisplayMemberBinding="{Binding Telefonnummer}" Width="110"/>
+                    <GridViewColumn Header="Dienst" DisplayMemberBinding="{Binding Dienst}" Width="70"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
         <Button Content="Add" Grid.Row="2" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="AddBtn_Click"/>
         <Button Content="Remove" Grid.Row="3" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="Button_Click"/>
-
     </Grid>
 
 </Window>

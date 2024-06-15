@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,13 +17,17 @@ namespace G06_DBI_CutCoordination
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int[] smallWidths = new int[] { 70, 70, 80, 80, 110, 70 };
 		TerminList terminList = new TerminList();
+        private DateTime currentDate;
+
         public MainWindow()
         {
             InitializeComponent();
-            terminList.Visualize(terminsBox, info);
-        }
 
+            currentDate = DateTime.Today;
+            terminsView.ItemsSource = terminList.GetTodayTermins(currentDate);  
+        }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -47,13 +52,21 @@ namespace G06_DBI_CutCoordination
          
 		private void TitleMaximize_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-            if (WindowState == WindowState.Maximized) 
+            if (WindowState == WindowState.Maximized)
             {
                 WindowState = WindowState.Normal;
-            }
+                for(int i = 0; i < smallWidths.Length; i++)
+                {
+					((GridView)terminsView.View).Columns[i].Width = smallWidths[i];
+				}
+			}
             else
             {
 				WindowState = WindowState.Maximized;
+				for(int i = 0; i < smallWidths.Length; i++)
+                {
+					((GridView)terminsView.View).Columns[i].Width = smallWidths[i] * 2;
+				}
 			}
 		}
 
@@ -64,20 +77,33 @@ namespace G06_DBI_CutCoordination
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            Window AddTermin = new AddTermin(terminList);
-            AddTermin.ShowDialog();
-            terminList.Visualize(terminsBox, info);
+            
+            var addTermin = new AddTermin(terminList);
+            addTermin.ShowDialog();
+            terminList = addTermin.Termins;
+            terminList.GetTodayTermins(this.currentDate);
 
+            
         }
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			if (terminsBox.SelectedIndex != -1)
+			if (terminsView.SelectedItem != null)
 			{
-				string itemToRemove = terminsBox.SelectedItem.ToString(); 
-				terminList.RemoveItem(itemToRemove, info);
-				terminsBox.Items.RemoveAt(terminsBox.SelectedIndex);
+				Termin selectedTermin = (Termin)terminsView.SelectedItem;
+				terminList.RemoveItem(selectedTermin);
+                terminsView.ItemsSource = terminList.GetTodayTermins(this.currentDate);
 			}
 		}
-	}
+
+		private void calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (calendar.SelectedDate.HasValue)
+			{
+				this.currentDate = calendar.SelectedDate.Value;
+
+                terminsView.ItemsSource = terminList.GetTodayTermins(this.currentDate);
+			}
+		}
+    }
 }
