@@ -31,4 +31,7 @@
 | Datum      | Arbeit                                        |
 |------------|-----------------------------------------------|
 | 04.06.2024 |MainWindow designed und connection zu AddTerminWindow gemacht.|
-|            |                                               |
+| 11.06.2024 |File-Struktur richtig gestellt sowie verlangt.|
+| 11.06.2024 |Angefangen damit das wenn das Programm startet alle Termine aus der Datenbank in eine Listbox geladen werden.|
+| 13.06.2024 |Vollendet das alle Termine geladen werden und zusaetzlich noch hinzugefuegt das die Termine zuvor noch nach Datum und Uhrzeit sortiert werden.|
+| 15.06.2024 |Richtig gestellt das nun Termine hinzugefuegt werden sowie entfernt werden koennen.|

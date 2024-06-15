@@ -11,35 +11,42 @@ namespace G06_DBI_CutCoordination
     public class TerminList
     {
         private List<Termin> termins = new List<Termin>();
-        private int maxTermins = 0;
 
         public TerminList() 
         { 
-            (termins, maxTermins) = TerminManager.LoadTerminsFromSql(termins);
+            termins = TerminManager.LoadTerminsFromSql(termins);
         }
 
         public void Visualize(ListBox box, TextBlock info)
         {
+            box.Items.Clear();
             SortToNextFit();
             for(int i = 0; i < termins.Count; i++)
             {
                 box.Items.Add(termins[i].ToString());
             }
-            info.Text = maxTermins.ToString();
+            info.Text = termins.Count.ToString();
         }
 
-        public void RemoveItem(string item)
+        public void RemoveItem(string item, TextBlock info)
         {
             for(int i = 0; i < termins.Count; i++)
             {
                 if (termins[i].ToString() == item)
                 {
                     termins.RemoveAt(i);
+                    break;
                 }
             }
+            info.Text = termins.Count.ToString();
+		}
+
+		public void AddTermin(Termin termin)
+        {
+            termins.Add(termin);
         }
 
-        public void SortToNextFit()
+		public void SortToNextFit()
         {
             for (int i = 0; i < termins.Count - 1; i++)
             {

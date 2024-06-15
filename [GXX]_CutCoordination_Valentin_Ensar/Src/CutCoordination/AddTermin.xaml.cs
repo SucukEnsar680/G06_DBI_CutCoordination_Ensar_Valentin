@@ -20,15 +20,17 @@ namespace G06_DBI_CutCoordination
     /// </summary>
     public partial class AddTermin : Window
     {
-        public AddTermin()
+        public TerminList termins;
+        public AddTermin(TerminList termins)
         {
             InitializeComponent();
+            this.termins = termins;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1);
-            DialogResult = true;
-        }
+            this.termins.AddTermin(TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1));
+			
+		}
     }
 }

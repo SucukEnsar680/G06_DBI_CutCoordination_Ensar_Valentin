@@ -14,9 +14,8 @@ namespace G06_DBI_CutCoordination
     internal class TerminManager
     {
 
-        public static (List<Termin>,int) LoadTerminsFromSql(List<Termin> termins)
+        public static List<Termin> LoadTerminsFromSql(List<Termin> termins)
         {
-            int counter = 0;
             string path = "Data Source=database/friseur.db";
             using (SqliteConnection connection = new SqliteConnection(path))
             { 
@@ -42,16 +41,15 @@ namespace G06_DBI_CutCoordination
                             termin.Datum = DateTime.Parse(dateStr);
                             termin.Uhrzeit = TimeSpan.Parse(uhrzeitStr);
                             
-            
                             termins.Add(termin);
-                            counter ++;
                         }
                     }
                 }
             }
-            return (termins, counter);
+            return termins;
         }
-        public static void NewTermin(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung)
+
+        public static Termin NewTermin(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung)
         {
             Termin newTermin = new Termin
             {
@@ -64,7 +62,8 @@ namespace G06_DBI_CutCoordination
                 DienstID = dienstleistung
             };
             AddTerminToSql(newTermin);
-            
+
+            return newTermin;
 
         }
             
