@@ -18,9 +18,16 @@
   <ItemGroup>
     <None Remove="assets\arrow_left.png" />
     <None Remove="assets\arrow_right.png" />
+    <None Remove="assets\blaurot.png" />
     <None Remove="assets\title_close.png" />
     <None Remove="assets\title_maximize.png" />
     <None Remove="assets\title_minimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\blaurot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
