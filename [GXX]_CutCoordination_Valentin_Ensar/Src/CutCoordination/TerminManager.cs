@@ -30,13 +30,14 @@ namespace G06_DBI_CutCoordination
                         {
                             Termin termin = new Termin();
 
+                            termin.Id = reader.GetInt32(0);
                             termin.Vorname = reader.GetString(1);
                             termin.Nachname = reader.GetString(2);
                             termin.Telefonnummer = reader.GetString(3);
                             string dateStr = reader.GetString(4);
                             string uhrzeitStr = reader.GetString(5);
                             termin.Dauer = reader.GetInt32(6);
-                            termin.DienstID = reader.GetInt32(7);
+                            termin.Dienst = reader.GetInt32(7);
 
                             termin.Datum = DateTime.Parse(dateStr);
                             termin.Uhrzeit = TimeSpan.Parse(uhrzeitStr);
@@ -59,19 +60,32 @@ namespace G06_DBI_CutCoordination
                 Datum = datum,
                 Uhrzeit = uhrzeit,
                 Dauer = dauer,
-                DienstID = dienstleistung
+                Dienst = dienstleistung
             };
             AddTerminToSql(newTermin);
 
             return newTermin;
 
         }
-            
-            
-        
-        public static void AddTerminToSql(Termin termin)
-        {
-            
+
+		public static void RemoveTermin(int id)
+		{
+			string path = "Data Source=database/friseur.db";
+			using (SqliteConnection connection = new SqliteConnection(path))
+			{
+				connection.Open();
+				string query = "DELETE FROM Termine WHERE Id = @Id";
+				using (SqliteCommand command = new SqliteCommand(query, connection))
+				{
+					command.Parameters.AddWithValue("@Id", id);
+					command.ExecuteNonQuery();
+				}
+			}
+		}
+
+
+		public static void AddTerminToSql(Termin termin)
+        {       
             string path = "Data Source=database/friseur.db";
             using (SqliteConnection connection = new SqliteConnection(path))
             {
@@ -86,7 +100,7 @@ namespace G06_DBI_CutCoordination
                     command.Parameters.AddWithValue("@Datum", termin.Datum);
                     command.Parameters.AddWithValue("@Uhrzeit", termin.Uhrzeit);
                     command.Parameters.AddWithValue("@Dauer", termin.Dauer);
-                    command.Parameters.AddWithValue("@DienstID", termin.DienstID);
+                    command.Parameters.AddWithValue("@DienstID", termin.Dienst);
                     command.ExecuteNonQuery();
                 }
                 

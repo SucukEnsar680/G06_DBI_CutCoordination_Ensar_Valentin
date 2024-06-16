@@ -35,3 +35,5 @@
 | 11.06.2024 |Angefangen damit das wenn das Programm startet alle Termine aus der Datenbank in eine Listbox geladen werden.|
 | 13.06.2024 |Vollendet das alle Termine geladen werden und zusaetzlich noch hinzugefuegt das die Termine zuvor noch nach Datum und Uhrzeit sortiert werden.|
 | 15.06.2024 |Richtig gestellt das nun Termine hinzugefuegt werden sowie entfernt werden koennen.|
+| 15.06.2024 |Alte Struktur (Listbox) sowie neue Kalender Idee fuer das MainWindow geloescht.|
+| 15.06.2024 |Einen kleinen Kalender nun hinzugefuegt danach eine Gridview fuer denn aktuellen Tag erstellt sowie dabei das alte Daten Design auf das neue angewandt.|

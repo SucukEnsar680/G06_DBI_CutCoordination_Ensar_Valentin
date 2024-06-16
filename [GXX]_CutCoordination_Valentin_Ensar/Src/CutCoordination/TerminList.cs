@@ -15,35 +15,41 @@ namespace G06_DBI_CutCoordination
         public TerminList() 
         { 
             termins = TerminManager.LoadTerminsFromSql(termins);
-        }
-
-        public void Visualize(ListBox box, TextBlock info)
-        {
-            box.Items.Clear();
             SortToNextFit();
-            for(int i = 0; i < termins.Count; i++)
-            {
-                box.Items.Add(termins[i].ToString());
-            }
-            info.Text = termins.Count.ToString();
         }
 
-        public void RemoveItem(string item, TextBlock info)
-        {
-            for(int i = 0; i < termins.Count; i++)
-            {
-                if (termins[i].ToString() == item)
-                {
-                    termins.RemoveAt(i);
-                    break;
-                }
-            }
-            info.Text = termins.Count.ToString();
+		public void RemoveItem(Termin item)
+		{
+			TerminManager.RemoveTermin(item.Id);
+
+			for (int i = 0; i < termins.Count; i++)
+			{
+				if (termins[i].Id == item.Id) 
+				{
+					termins.RemoveAt(i);
+					break;
+				}
+			}
 		}
+
 
 		public void AddTermin(Termin termin)
         {
             termins.Add(termin);
+        }
+
+        public List<Termin> GetTodayTermins(DateTime selectedDate)
+        {
+            List<Termin> todayTermins = new List<Termin>();
+
+            for(int i = 0; i < termins.Count; i++)
+            {
+                if (termins[i].Datum == selectedDate)
+                {
+                    todayTermins.Add(termins[i]);
+                }
+            }
+            return todayTermins;
         }
 
 		public void SortToNextFit()
