@@ -30,6 +30,7 @@ namespace G06_DBI_CutCoordination
                         {
                             Termin termin = new Termin();
 
+                            termin.Id = reader.GetInt32(0);
                             termin.Vorname = reader.GetString(1);
                             termin.Nachname = reader.GetString(2);
                             termin.Telefonnummer = reader.GetString(3);
@@ -66,12 +67,25 @@ namespace G06_DBI_CutCoordination
             return newTermin;
 
         }
-            
-            
-        
-        public static void AddTerminToSql(Termin termin)
-        {
-            
+
+		public static void RemoveTermin(int id)
+		{
+			string path = "Data Source=database/friseur.db";
+			using (SqliteConnection connection = new SqliteConnection(path))
+			{
+				connection.Open();
+				string query = "DELETE FROM Termine WHERE Id = @Id";
+				using (SqliteCommand command = new SqliteCommand(query, connection))
+				{
+					command.Parameters.AddWithValue("@Id", id);
+					command.ExecuteNonQuery();
+				}
+			}
+		}
+
+
+		public static void AddTerminToSql(Termin termin)
+        {       
             string path = "Data Source=database/friseur.db";
             using (SqliteConnection connection = new SqliteConnection(path))
             {

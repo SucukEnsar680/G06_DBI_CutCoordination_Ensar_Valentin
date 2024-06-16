@@ -23,5 +23,10 @@ namespace G06_DBI_CutCoordination
         {
             InitializeComponent();
         }
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+
+        }
     }
 }

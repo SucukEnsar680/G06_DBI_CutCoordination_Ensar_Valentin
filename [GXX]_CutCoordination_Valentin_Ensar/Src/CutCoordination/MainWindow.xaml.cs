@@ -55,7 +55,12 @@ namespace G06_DBI_CutCoordination
             if (WindowState == WindowState.Maximized)
             {
                 WindowState = WindowState.Normal;
-                for(int i = 0; i < smallWidths.Length; i++)
+
+                headLine.Margin = new Thickness(0, 0, 600, 0);
+                addBtn.Margin = new Thickness(55, 45, 55, 45);
+                removeBtn.Margin = new Thickness(55, 5, 55, 85);
+
+				for (int i = 0; i < smallWidths.Length; i++)
                 {
 					((GridView)terminsView.View).Columns[i].Width = smallWidths[i];
 				}
@@ -63,7 +68,12 @@ namespace G06_DBI_CutCoordination
             else
             {
 				WindowState = WindowState.Maximized;
-				for(int i = 0; i < smallWidths.Length; i++)
+
+				headLine.Margin = new Thickness(0, 0, 1500, 0);
+				addBtn.Margin = new Thickness(115, 95, 115, 95);
+                removeBtn.Margin = new Thickness(115, 15, 115, 175);
+
+				for (int i = 0; i < smallWidths.Length; i++)
                 {
 					((GridView)terminsView.View).Columns[i].Width = smallWidths[i] * 2;
 				}
@@ -86,13 +96,13 @@ namespace G06_DBI_CutCoordination
             
         }
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		private void RemoveBtn_Click(object sender, RoutedEventArgs e)
 		{
 			if (terminsView.SelectedItem != null)
 			{
 				Termin selectedTermin = (Termin)terminsView.SelectedItem;
 				terminList.RemoveItem(selectedTermin);
-                terminsView.ItemsSource = terminList.GetTodayTermins(this.currentDate);
+				terminsView.ItemsSource = terminList.GetTodayTermins(this.currentDate);
 			}
 		}
 

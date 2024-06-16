@@ -18,17 +18,20 @@ namespace G06_DBI_CutCoordination
             SortToNextFit();
         }
 
-        public void RemoveItem(Termin item)
-        {
-            for(int i = 0; i < termins.Count; i++)
-            {
-                if (termins[i].ToString() == item.ToString())
-                {
-                    termins.RemoveAt(i);
-                    break;
-                }
-            }
+		public void RemoveItem(Termin item)
+		{
+			TerminManager.RemoveTermin(item.Id);
+
+			for (int i = 0; i < termins.Count; i++)
+			{
+				if (termins[i].Id == item.Id) 
+				{
+					termins.RemoveAt(i);
+					break;
+				}
+			}
 		}
+
 
 		public void AddTermin(Termin termin)
         {
