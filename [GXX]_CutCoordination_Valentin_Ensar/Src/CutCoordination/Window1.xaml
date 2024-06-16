@@ -15,10 +15,18 @@
         <Image Grid.Column="0"  Margin="20,20,20,20" Source="assets\blaurot.png" Stretch="Fill"/>
         <Image Grid.Column="2"  Margin="20,20,20,20" Source="assets\blaurot.png" Stretch="Fill"/>
         <TextBlock Text="CutCoordination" Grid.Column="1" HorizontalAlignment="Center" FontSize="50"  Margin="0,20,0,0" FontFamily="Edwardian Script ITC" FontWeight="Bold" />
-        <ListBox Grid.Column="1" Margin="0,0,0,0" Name="terminsBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="350" Height="250"  BorderBrush="Black" BorderThickness="1" />
+        
+        <StackPanel Orientation="Vertical"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Text="Termine: " HorizontalAlignment="Center" FontSize="13" Margin="0"/>
+                <TextBlock x:Name="info" Text="" Grid.Column="0" HorizontalAlignment="Center" FontSize="13"/>
+            </StackPanel>
+            
+            <ListBox Grid.Column="1" Margin="0,0,0,0" Name="terminsBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="350" Height="250"  BorderBrush="Black" BorderThickness="1" />
+        </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Height="50" Width="165" Margin="10" Click="Button_Click"/>
-            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="165"  FontSize="15" Margin="10"/>
+            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Height="40" Width="165" Margin="10" />
+            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40" Width="165"  FontSize="15" Margin="10"/>
         </StackPanel>
 
     </Grid>

@@ -79,5 +79,9 @@ namespace G06_DBI_CutCoordination
 				terminsBox.Items.RemoveAt(terminsBox.SelectedIndex);
 			}
 		}
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
 	}
 }

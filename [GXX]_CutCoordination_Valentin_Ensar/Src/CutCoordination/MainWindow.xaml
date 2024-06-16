@@ -9,45 +9,43 @@
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Height="600" Width="1000"
+        Height="550" Width="950"
         MouseDown="Window_MouseDown" Cursor="">
 
-    <Grid Background="Transparent" x:Name="mainGrid">
+    <Grid Background="White" x:Name="mainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="19*"/>
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Border Background="#e9ecef" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+        <Image Grid.Column="0"  Margin="20,20,20,20" Source="assets\blaurot.png" Stretch="Fill" Grid.Row="1"/>
+        <Image Grid.Column="2"  Margin="20,20,20,20" Source="assets\blaurot.png" Stretch="Fill" Grid.Row="1"/>
+        <TextBlock Text="CutCoordination" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontSize="50"  Margin="0,20,0,0" FontFamily="Edwardian Script ITC" FontWeight="Bold" />
         
-
-        <Border Background="#F9B872" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="10,10,0,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <TextBlock Text="Friseur-Studios" Margin="0,0,600,0" FontSize="26" FontWeight="Bold"/>
-                <Image Source="/assets/title_minimize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMinimize_MouseDown" Cursor="Hand"/>
-                <Image Source="/assets/title_maximize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMaximize_MouseDown" Cursor="Hand"/>
-                <Image Source="/assets/title_close.png" Width="30" Height="Auto" Margin="0,0,25,0" MouseDown="TitleClose_MouseDown" Cursor="Hand"/>
-            </StackPanel>
-        </Border>
-
-        <Border Background="#B6E1E7" Grid.Row="1" Grid.RowSpan="4"  Grid.ColumnSpan="3" CornerRadius="0,0,10,10"/>
-
-        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Margin="10">
-            <TextBlock Text="Alle Termine" HorizontalAlignment="Center" FontSize="18" Margin="20"/>
-            <TextBlock x:Name="info" Text="" Grid.Column="0" HorizontalAlignment="Center" FontSize="18"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2">
+            <Image Source="/assets/title_minimize.png" Width="15" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMinimize_MouseDown" Cursor="Hand"/>
+            <Image Source="/assets/title_maximize.png" Width="15" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMaximize_MouseDown" Cursor="Hand"/>
+            <Image Source="/assets/title_close.png" Width="15" Height="Auto" Margin="0,0,25,0" MouseDown="TitleClose_MouseDown" Cursor="Hand"/>
         </StackPanel>
-        
-        <ListBox Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Margin="10" x:Name="terminsBox"/>
-        <Button Content="Add" Grid.Row="2" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="AddBtn_Click"/>
-        <Button Content="Remove" Grid.Row="3" Grid.Column="2" Margin="40,30,40,30" FontSize="20" Click="Button_Click"/>
 
+        <StackPanel Orientation="Vertical" Grid.Row="1"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Termine: " HorizontalAlignment="Center" FontSize="13" Margin="0"/>
+                <TextBlock x:Name="info" Text="" Grid.Column="0" HorizontalAlignment="Center" FontSize="13"/>
+            </StackPanel>
+
+            <ListBox Grid.Column="1" Margin="0,0,0,0" Name="terminsBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="550" Height="350"  BorderBrush="Black" BorderThickness="1" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" Height="40" Width="105" Margin="10" Click="AddBtn_Click" />
+            <Button  Content="Löschen" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40" Width="105"  FontSize="15" Margin="10" Click="Button_Click"/>
+            <Button  Content="Bearbeiten" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40" Width="105"  FontSize="15" Margin="10" Click="ButtonEdit_Click"/>
+        </StackPanel>
     </Grid>
 
 </Window>
