@@ -11,17 +11,16 @@ using Microsoft.Data.Sqlite;
 
 namespace G06_DBI_CutCoordination
 {
-    internal class TerminManager
+    public class TerminManager
     {
-
         public static List<Termin> LoadTerminsFromSql(List<Termin> termins)
         {
             string path = "Data Source=database/friseur.db";
             using (SqliteConnection connection = new SqliteConnection(path))
             { 
                 connection.Open();
-
                 string query = @"SELECT * FROM Termine;";
+
                 using (SqliteCommand command = new SqliteCommand(query, connection))
                 {
                     using (SqliteDataReader reader = command.ExecuteReader())
@@ -76,6 +75,7 @@ namespace G06_DBI_CutCoordination
 			{
 				connection.Open();
 				string query = "DELETE FROM Termine WHERE Id = @Id";
+
 				using (SqliteCommand command = new SqliteCommand(query, connection))
 				{
 					command.Parameters.AddWithValue("@Id", id);
@@ -84,7 +84,7 @@ namespace G06_DBI_CutCoordination
 			}
 		}
 
-        public static void EditTermine(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung, int id)
+        public static Termin EditTermine(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung, int id)
         {
             string path = "Data Source=database/friseur.db";
             using (SqliteConnection connection = new SqliteConnection(path))
@@ -104,7 +104,20 @@ namespace G06_DBI_CutCoordination
                     command.ExecuteNonQuery();
                 }
             }
-        }
+
+			Termin newTermin = new Termin
+			{
+                Id = id,
+				Vorname = vorname,
+				Nachname = nachname,
+				Telefonnummer = telefonnummer,
+				Datum = datum,
+				Uhrzeit = uhrzeit,
+				Dauer = dauer,
+				Dienst = dienstleistung
+			};
+            return newTermin;
+		}
 
 
 		public static void AddTerminToSql(Termin termin)

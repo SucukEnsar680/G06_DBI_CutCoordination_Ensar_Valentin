@@ -10,43 +10,59 @@ namespace G06_DBI_CutCoordination
 {
     public class TerminList
     {
-        private List<Termin> termins = new List<Termin>();
+		#region variables
+		private List<Termin> termins = new List<Termin>();
+		#endregion
 
-        public TerminList() 
+		#region constructors
+		public TerminList() 
         { 
-            termins = TerminManager.LoadTerminsFromSql(termins);
+            this.termins = TerminManager.LoadTerminsFromSql(this.termins);
             SortToNextFit();
         }
+		#endregion
 
-		public void RemoveItem(Termin item)
+		#region methods
+        public void AddTermin(Termin termin)
 		{
-			TerminManager.RemoveTermin(item.Id);
+			this.termins.Add(termin);
+		}
 
-			for (int i = 0; i < termins.Count; i++)
+		public void RemoveTermin(Termin termin)
+		{
+			TerminManager.RemoveTermin(termin.Id);
+
+			for (int i = 0; i < this.termins.Count; i++)
 			{
-				if (termins[i].Id == item.Id) 
+				if (this.termins[i].Id == termin.Id) 
 				{
-					termins.RemoveAt(i);
+					this.termins.RemoveAt(i);
 					break;
 				}
 			}
 		}
 
-
-		public void AddTermin(Termin termin)
+        public void UpdateTermin(Termin oldTermin, Termin newTermin)
         {
-            termins.Add(termin);
+            for(int i = 0; i < this.termins.Count;i++)
+            {
+                if (this.termins[i].Id == oldTermin.Id)
+                {
+                    this.termins[i] = newTermin;
+                    break;
+                }
+            }
         }
 
         public List<Termin> GetTodayTermins(DateTime selectedDate)
         {
             List<Termin> todayTermins = new List<Termin>();
 
-            for(int i = 0; i < termins.Count; i++)
+            for(int i = 0; i < this.termins.Count; i++)
             {
-                if (termins[i].Datum == selectedDate)
+                if (this.termins[i].Datum == selectedDate)
                 {
-                    todayTermins.Add(termins[i]);
+                    todayTermins.Add(this.termins[i]);
                 }
             }
             return todayTermins;
@@ -54,19 +70,20 @@ namespace G06_DBI_CutCoordination
 
 		public void SortToNextFit()
         {
-            for (int i = 0; i < termins.Count - 1; i++)
+            for (int i = 0; i < this.termins.Count - 1; i++)
             {
-                for (int j = 0; j < termins.Count - i - 1; j++)
+                for (int j = 0; j < this.termins.Count - i - 1; j++)
                 {
-                    DateTime dateTime1 = termins[j].Datum + termins[j].Uhrzeit;
-                    DateTime dateTime2 = termins[j + 1].Datum + termins[j + 1].Uhrzeit;
+                    DateTime dateTimeFirst = this.termins[j].Datum + this.termins[j].Uhrzeit;
+                    DateTime dateTimeSecond = this.termins[j + 1].Datum + this.termins[j + 1].Uhrzeit;
 
-                    if (dateTime1 > dateTime2)
+                    if (dateTimeFirst > dateTimeSecond)
                     {
-                        (termins[j], termins[j + 1]) = (termins[j + 1], termins[j]);
+                        (this.termins[j], this.termins[j + 1]) = (this.termins[j + 1], this.termins[j]);
                     }
                 }
             }
         }
-    }
+		#endregion
+	}
 }

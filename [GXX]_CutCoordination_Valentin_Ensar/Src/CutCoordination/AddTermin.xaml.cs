@@ -66,7 +66,7 @@ namespace G06_DBI_CutCoordination
             }
             else
             {
-                TerminManager.EditTermine(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1, EditingTermin.Id);
+                Termins.UpdateTermin(EditingTermin, TerminManager.EditTermine(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1, EditingTermin.Id));
                 this.Close();
             }
             
