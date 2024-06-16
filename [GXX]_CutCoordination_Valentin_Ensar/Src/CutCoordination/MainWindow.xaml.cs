@@ -87,8 +87,9 @@ namespace G06_DBI_CutCoordination
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            
-            var addTermin = new AddTermin(terminList);
+            bool Edit = false;
+            Termin EditingTermin = null;
+            var addTermin = new AddTermin(terminList, Edit, EditingTermin );
             addTermin.ShowDialog();
             terminList = addTermin.Termins;
             terminList.GetTodayTermins(this.currentDate);
@@ -115,5 +116,15 @@ namespace G06_DBI_CutCoordination
                 terminsView.ItemsSource = terminList.GetTodayTermins(this.currentDate);
 			}
 		}
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            bool Edit = true;
+            Termin selectedTermin = (Termin)terminsView.SelectedItem;
+            AddTermin addTermin = new AddTermin(terminList, Edit, selectedTermin);
+            addTermin.ShowDialog();
+            
+            terminsView.ItemsSource = terminList.GetTodayTermins(this.currentDate);
+        }
     }
 }

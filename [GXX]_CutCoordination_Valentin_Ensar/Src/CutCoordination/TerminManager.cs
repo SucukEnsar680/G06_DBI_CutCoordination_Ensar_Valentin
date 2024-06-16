@@ -63,6 +63,7 @@ namespace G06_DBI_CutCoordination
                 Dienst = dienstleistung
             };
             AddTerminToSql(newTermin);
+            
 
             return newTermin;
 
@@ -82,6 +83,28 @@ namespace G06_DBI_CutCoordination
 				}
 			}
 		}
+
+        public static void EditTermine(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung, int id)
+        {
+            string path = "Data Source=database/friseur.db";
+            using (SqliteConnection connection = new SqliteConnection(path))
+            {
+                connection.Open();
+                string query = "UPDATE Termine SET Vorname = @Vorname, Nachname = @Nachname, Telefonnummer = @Telefonnummer, Datum = @Datum, Uhrzeit = @Uhrzeit, Dauer = @Dauer, DienstID = @DienstID WHERE Id = @Id";
+                using (SqliteCommand command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Vorname", vorname);
+                    command.Parameters.AddWithValue("@Nachname", nachname);
+                    command.Parameters.AddWithValue("@Telefonnummer", telefonnummer);
+                    command.Parameters.AddWithValue("@Datum", datum);
+                    command.Parameters.AddWithValue("@Uhrzeit", uhrzeit);
+                    command.Parameters.AddWithValue("@Dauer", dauer);
+                    command.Parameters.AddWithValue("@DienstID", dienstleistung);
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
 
 		public static void AddTerminToSql(Termin termin)

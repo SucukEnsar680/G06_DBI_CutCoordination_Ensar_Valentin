@@ -63,8 +63,9 @@
             
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button  Content="Termin hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Height="70" Width="200" Margin="10" Click="Button_Click"/>
-            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" Width="200"  FontSize="15" Margin="10"/>
+            <Button  Content="Termin hinzufügen" x:Name="addButton" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Height="70" Width="200" Margin="10" Click="Button_Click"/>
+            <Button  Content="Änderung bestätigen" x:Name="editButton" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Height="70" Width="200" Margin="10" Click="editButton_Click"/>
+            <Button  Content="Abbrechen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" Width="200"  FontSize="15" Margin="10" Click="Button_Click_1"/>
         </StackPanel>
         
 

@@ -19,9 +19,9 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5.5*"/>
             <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="*"/>
+            
         </Grid.ColumnDefinitions>
 
         <Border Background="#38383A" Grid.Row="1" Grid.RowSpan="4"  Grid.ColumnSpan="3" CornerRadius="0,0,10,10"/>
@@ -41,18 +41,21 @@
         <ListView Name="terminsView" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" SelectionMode="Single">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Uhrzeit" DisplayMemberBinding="{Binding Uhrzeit}" Width="70"/>
-                    <GridViewColumn Header="Dauer" DisplayMemberBinding="{Binding Dauer}" Width="70"/>
                     <GridViewColumn Header="Vorname" DisplayMemberBinding="{Binding Vorname}" Width="82"/>
                     <GridViewColumn Header="Nachname" DisplayMemberBinding="{Binding Nachname}" Width="82"/>
+                    <GridViewColumn Header="Uhrzeit" DisplayMemberBinding="{Binding Uhrzeit}" Width="70"/>
+                    <GridViewColumn Header="Dauer" DisplayMemberBinding="{Binding Dauer}" Width="70"/>
                     <GridViewColumn Header="Telefonnummer" DisplayMemberBinding="{Binding Telefonnummer}" Width="115"/>
                     <GridViewColumn Header="Dienst" DisplayMemberBinding="{Binding Dienst}" Width="70"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
+            <Button x:Name="addBtn" Content="Add" Grid.Row="2" Margin="20" Grid.Column="2" Width="200" Height="100" FontSize="20" Click="AddBtn_Click"/>
+            <Button x:Name="editBtn" Content="Edit" Grid.Row="2" Margin="20" Grid.Column="2" Width="200" Height="100" FontSize="20" Click="EditBtn_Click"/>
+            <Button x:Name="removeBtn" Content="Remove" Grid.Row="3" Margin="20" Grid.Column="2" Width="200" Height="100"  FontSize="20" Click="RemoveBtn_Click"/>
+        </StackPanel>
         
-        <Button x:Name="addBtn" Content="Add" Grid.Row="2" Grid.Column="2" Margin="55,45,55,45" FontSize="20" Click="AddBtn_Click"/>
-        <Button x:Name="removeBtn" Content="Remove" Grid.Row="3" Grid.Column="2" Margin="55,5,55,85" FontSize="20" Click="RemoveBtn_Click"/>
     </Grid>
 
 </Window>

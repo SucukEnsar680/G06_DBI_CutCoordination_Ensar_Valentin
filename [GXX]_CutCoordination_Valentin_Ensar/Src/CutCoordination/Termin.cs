@@ -18,9 +18,6 @@ namespace G06_DBI_CutCoordination
         public int Dauer { get; set; }
         public int Dienst { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Vorname} {Nachname}, Tel: {Telefonnummer}, Datum: {Datum:dd.MM.yyyy}, Uhrzeit: {Uhrzeit:hh\\:mm}, Dauer: {Dauer} Min., DienstID: {DienstID}";
-        }
+        
     }
 }

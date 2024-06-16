@@ -21,16 +21,60 @@ namespace G06_DBI_CutCoordination
     public partial class AddTermin : Window
     {
         public TerminList Termins;
-        public AddTermin(TerminList termins)
+        public Termin EditingTermin { get; set; }
+        public AddTermin(TerminList termins, bool Edit, Termin editingTermin)
         {
             InitializeComponent();
             this.Termins = termins;
+            this.EditingTermin = editingTermin;
+            if (Edit == true && editingTermin != null)
+            {
+                Vorname.Text = editingTermin.Vorname;
+                Nachname.Text = editingTermin.Nachname;
+                Telefonnummer.Text = editingTermin.Telefonnummer;
+                Uhrzeit.Text = editingTermin.Uhrzeit.ToString();
+                Dauer.Text = editingTermin.Dauer.ToString();
+                Dienstleistung.SelectedIndex = editingTermin.Dienst - 1;
+                Datum.SelectedDate = editingTermin.Datum;
+                addButton.Visibility = Visibility.Collapsed;
+                editButton.Visibility = Visibility.Visible;
+
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Termins.AddTermin(TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1));
-			
-		}
+            if(Vorname.Text == "" || Nachname.Text == "" || Telefonnummer.Text == "" || Datum.SelectedDate == null || Uhrzeit.Text == "" || Dauer.Text == "" || Dienstleistung.SelectedIndex == -1)
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                return;
+            }
+            else
+            {
+                this.Termins.AddTermin(TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1));
+                this.Close();
+            }
+            
+        }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Vorname.Text == "" || Nachname.Text == "" || Telefonnummer.Text == "" || Datum.SelectedDate == null || Uhrzeit.Text == "" || Dauer.Text == "" || Dienstleistung.SelectedIndex == -1)
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                return;
+            }
+            else
+            {
+                TerminManager.EditTermine(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1, EditingTermin.Id);
+                this.Close();
+            }
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
