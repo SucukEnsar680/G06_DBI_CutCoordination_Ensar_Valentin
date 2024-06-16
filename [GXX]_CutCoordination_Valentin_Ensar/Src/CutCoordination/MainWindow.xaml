@@ -15,7 +15,7 @@
     <Grid Background="White" x:Name="mainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="19*"/>
+            <RowDefinition Height="24*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -25,17 +25,18 @@
         </Grid.ColumnDefinitions>
 
         <Border Background="#38383A" Grid.Row="1" Grid.RowSpan="4"  Grid.ColumnSpan="3" CornerRadius="0,0,10,10"/>
-        
-        <Border Background="#F9B872" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="10,10,0,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <TextBlock x:Name="headLine" Text="Friseur-Studios" Margin="0,0,600,0" FontSize="26" FontWeight="Bold"/>
-                <Image Source="/assets/title_minimize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMinimize_MouseDown" Cursor="Hand"/>
-                <Image Source="/assets/title_maximize.png" Width="30" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMaximize_MouseDown" Cursor="Hand"/>
-                <Image Source="/assets/title_close.png" Width="30" Height="Auto" Margin="0,0,25,0" MouseDown="TitleClose_MouseDown" Cursor="Hand"/>
-            </StackPanel>
-        </Border>
 
-        
+        <Border Background="#e9ecef" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="10,10,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+
+                <Image Source="/assets/title_minimize.png" Width="17" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMinimize_MouseDown" Cursor="Hand"/>
+                <Image Source="/assets/title_maximize.png" Width="17" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMaximize_MouseDown" Cursor="Hand"/>
+                <Image Source="/assets/title_close.png" Width="17" Height="Auto" Margin="0,0,25,0" MouseDown="TitleClose_MouseDown" Cursor="Hand"/>
+            </StackPanel>
+            
+        </Border>
+        <TextBlock Text="CutCoordination" x:Name="headLine" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Edwardian Script ITC"/>
+
         <Calendar Grid.Row="2" Grid.Column="0" Name="calendar" SelectedDatesChanged="calendar_SelectedDatesChanged"/>
 
         <ListView Name="terminsView" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" SelectionMode="Single">
