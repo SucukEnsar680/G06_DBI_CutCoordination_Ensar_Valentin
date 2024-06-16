@@ -13,43 +13,45 @@ namespace G06_DBI_CutCoordination
 {
     public class TerminManager
     {
-        public static List<Termin> LoadTerminsFromSql(List<Termin> termins)
-        {
-            string path = "Data Source=database/friseur.db";
-            using (SqliteConnection connection = new SqliteConnection(path))
-            { 
-                connection.Open();
-                string query = @"SELECT * FROM Termine;";
+		public static List<Termin> LoadTerminsFromSql(List<Termin> termins)
+		{
+			string path = "Data Source=database/friseur.db";
+			using (SqliteConnection connection = new SqliteConnection(path))
+			{
+				connection.Open();
+				string query = @"SELECT t.ID, t.Vorname, t.Nachname, t.Telefonnummer, t.Datum, t.Uhrzeit, t.Dauer, t.DienstId, d.Dienstname 
+                                FROM Termine t JOIN Dienstleistungen d ON t.DienstID = d.DienstID;";
 
-                using (SqliteCommand command = new SqliteCommand(query, connection))
-                {
-                    using (SqliteDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Termin termin = new Termin();
+				using (SqliteCommand command = new SqliteCommand(query, connection))
+				{
+					using (SqliteDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							Termin termin = new Termin();
 
-                            termin.Id = reader.GetInt32(0);
-                            termin.Vorname = reader.GetString(1);
-                            termin.Nachname = reader.GetString(2);
-                            termin.Telefonnummer = reader.GetString(3);
-                            string dateStr = reader.GetString(4);
-                            string uhrzeitStr = reader.GetString(5);
-                            termin.Dauer = reader.GetInt32(6);
-                            termin.Dienst = reader.GetInt32(7);
+							termin.Id = reader.GetInt32(0);
+							termin.Vorname = reader.GetString(1);
+							termin.Nachname = reader.GetString(2);
+							termin.Telefonnummer = reader.GetString(3);
+							string dateStr = reader.GetString(4);
+							string uhrzeitStr = reader.GetString(5);
+							termin.Dauer = reader.GetInt32(6);
+							termin.DienstId = reader.GetInt32(7);
+                            termin.DienstName = reader.GetString(8);
 
-                            termin.Datum = DateTime.Parse(dateStr);
-                            termin.Uhrzeit = TimeSpan.Parse(uhrzeitStr);
-                            
-                            termins.Add(termin);
-                        }
-                    }
-                }
-            }
-            return termins;
-        }
+							termin.Datum = DateTime.Parse(dateStr);
+							termin.Uhrzeit = TimeSpan.Parse(uhrzeitStr);
 
-        public static Termin NewTermin(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung)
+							termins.Add(termin);
+						}
+					}
+				}
+			}
+			return termins;
+		}
+
+		public static Termin NewTermin(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung, string dienstname)
         {
             Termin newTermin = new Termin
             {
@@ -59,7 +61,8 @@ namespace G06_DBI_CutCoordination
                 Datum = datum,
                 Uhrzeit = uhrzeit,
                 Dauer = dauer,
-                Dienst = dienstleistung
+                DienstId = dienstleistung,
+                DienstName = dienstname
             };
             AddTerminToSql(newTermin);
             
@@ -84,7 +87,7 @@ namespace G06_DBI_CutCoordination
 			}
 		}
 
-        public static Termin EditTermine(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung, int id)
+        public static Termin EditTermine(string vorname, string nachname, string telefonnummer, DateTime datum, TimeSpan uhrzeit, int dauer, int dienstleistung, int id, string dienstname)
         {
             string path = "Data Source=database/friseur.db";
             using (SqliteConnection connection = new SqliteConnection(path))
@@ -114,7 +117,8 @@ namespace G06_DBI_CutCoordination
 				Datum = datum,
 				Uhrzeit = uhrzeit,
 				Dauer = dauer,
-				Dienst = dienstleistung
+				DienstId = dienstleistung,
+                DienstName = dienstname
 			};
             return newTermin;
 		}
@@ -136,7 +140,7 @@ namespace G06_DBI_CutCoordination
                     command.Parameters.AddWithValue("@Datum", termin.Datum);
                     command.Parameters.AddWithValue("@Uhrzeit", termin.Uhrzeit);
                     command.Parameters.AddWithValue("@Dauer", termin.Dauer);
-                    command.Parameters.AddWithValue("@DienstID", termin.Dienst);
+                    command.Parameters.AddWithValue("@DienstID", termin.DienstId);
                     command.ExecuteNonQuery();
                 }
                 

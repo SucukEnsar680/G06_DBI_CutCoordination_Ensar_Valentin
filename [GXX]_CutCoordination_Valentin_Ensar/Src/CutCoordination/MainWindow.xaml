@@ -47,7 +47,7 @@
                     <GridViewColumn Header="Uhrzeit" DisplayMemberBinding="{Binding Uhrzeit}" Width="70"/>
                     <GridViewColumn Header="Dauer" DisplayMemberBinding="{Binding Dauer}" Width="70"/>
                     <GridViewColumn Header="Telefonnummer" DisplayMemberBinding="{Binding Telefonnummer}" Width="120"/>
-                    <GridViewColumn Header="Dienst" DisplayMemberBinding="{Binding Dienst}" Width="70"/>
+                    <GridViewColumn Header="Dienst" DisplayMemberBinding="{Binding DienstName}" Width="70"/>
                 </GridView>
             </ListView.View>
         </ListView>

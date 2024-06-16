@@ -34,7 +34,7 @@ namespace G06_DBI_CutCoordination
                 Telefonnummer.Text = editingTermin.Telefonnummer;
                 Uhrzeit.Text = editingTermin.Uhrzeit.ToString();
                 Dauer.Text = editingTermin.Dauer.ToString();
-                Dienstleistung.SelectedIndex = editingTermin.Dienst - 1;
+                Dienstleistung.SelectedIndex = editingTermin.DienstId - 1;
                 Datum.SelectedDate = editingTermin.Datum;
                 addButton.Visibility = Visibility.Collapsed;
                 editButton.Visibility = Visibility.Visible;
@@ -51,7 +51,8 @@ namespace G06_DBI_CutCoordination
             }
             else
             {
-                this.Termins.AddTermin(TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1));
+				ComboBoxItem selectedItem = Dienstleistung.SelectedItem as ComboBoxItem;
+				this.Termins.AddTermin(TerminManager.NewTermin(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1, selectedItem.Content.ToString()));
                 this.Close();
             }
             
@@ -66,7 +67,8 @@ namespace G06_DBI_CutCoordination
             }
             else
             {
-                Termins.UpdateTermin(EditingTermin, TerminManager.EditTermine(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1, EditingTermin.Id));
+				ComboBoxItem selectedItem = Dienstleistung.SelectedItem as ComboBoxItem;
+				Termins.UpdateTermin(EditingTermin, TerminManager.EditTermine(Vorname.Text, Nachname.Text, Telefonnummer.Text, DateTime.Parse(Datum.SelectedDate.Value.ToString("dd-MM-yyyy")), TimeSpan.Parse(Uhrzeit.Text), Convert.ToInt32(Dauer.Text), Convert.ToInt32(Dienstleistung.SelectedIndex) + 1, EditingTermin.Id, selectedItem.Content.ToString()));
                 this.Close();
             }
             

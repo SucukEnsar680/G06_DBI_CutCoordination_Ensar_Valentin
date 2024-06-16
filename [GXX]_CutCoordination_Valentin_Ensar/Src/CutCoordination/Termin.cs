@@ -16,6 +16,7 @@ namespace G06_DBI_CutCoordination
         public DateTime Datum { get; set; }
         public TimeSpan Uhrzeit { get; set; }
         public int Dauer { get; set; }
-        public int Dienst { get; set; } 
+        public int DienstId { get; set; } 
+        public string DienstName { get; set; }
     }
 }

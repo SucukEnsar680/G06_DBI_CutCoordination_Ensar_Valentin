@@ -38,3 +38,5 @@
 | 15.06.2024 |Alte Struktur (Listbox) sowie neue Kalender Idee fuer das MainWindow geloescht.|
 | 15.06.2024 |Einen kleinen Kalender nun hinzugefuegt danach eine Gridview fuer denn aktuellen Tag erstellt sowie dabei das alte Daten Design auf das neue angewandt.|
 | 16.06.2024 |Ein besseres Design der Anwendung hinzugefuegt sowie das Removen der Termine nicht nur grafisch gemacht sondern nun auch Datenbank technisch.|
+| 16.06.2024 |Code schoener strukturiert sowie das editieren der bestehenden Termine funktional gemacht sprich das man nun den Erfolg vom editieren eines Termins sofort sieht.|
+| 16.06.2024 |Eine Join-Abfrage hinzugefuegt fuer die Dienstleistungen beim einlesen sowie im Code dazu die richtige Darstellung.|
