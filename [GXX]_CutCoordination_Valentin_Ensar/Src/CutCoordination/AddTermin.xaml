@@ -23,11 +23,11 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Vorname" FontSize="20" FontWeight="Bold" Margin="10"/>
-                    <TextBox x:Name="Vorname" FontSize="20" Margin="10"/>
+                    <TextBox x:Name="Vorname" FontSize="20" Width="120" Margin="10"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Nachname" FontSize="20" FontWeight="Bold" Margin="10"/>
-                    <TextBox x:Name="Nachname" FontSize="20" Margin="10"/>
+                    <TextBox x:Name="Nachname" FontSize="20" Width="120" Margin="10"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
@@ -38,11 +38,11 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Uhrzeit" FontSize="20" FontWeight="Bold" Margin="10"/>
-                    <TextBox x:Name="Uhrzeit" FontSize="20" Margin="10"/>
+                    <TextBox x:Name="Uhrzeit" FontSize="20" Width="80" Margin="10"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Dauer" FontSize="20" FontWeight="Bold" Margin="10"/>
-                    <TextBox x:Name="Dauer" FontSize="20" Margin="10"/>
+                    <TextBox x:Name="Dauer" FontSize="20" Width="80" Margin="10" GotFocus="Dauer_GotFocus"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Dienstleistung" FontSize="20" FontWeight="Bold" Margin="10"/>
@@ -57,8 +57,7 @@
             
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Datum" FontSize="20" FontWeight="Bold" Margin="10"/>
-
-                <DatePicker x:Name="Datum" FontSize="20" Height="40" VerticalContentAlignment="Center" Width="373"/>
+                <DatePicker x:Name="Datum" FontSize="20" Height="40" Margin="0,0,60,0" VerticalContentAlignment="Center" Width="373"/>
             </StackPanel>
             
         </StackPanel>

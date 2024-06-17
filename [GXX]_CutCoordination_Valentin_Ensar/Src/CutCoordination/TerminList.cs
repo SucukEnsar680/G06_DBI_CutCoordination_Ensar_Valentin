@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -41,6 +42,30 @@ namespace G06_DBI_CutCoordination
 				}
 			}
 		}
+
+        public string GetUmsatz()
+        {
+            string path = "Data Source=database/friseur.db";
+            string Umsatz = "";
+            using (SqliteConnection connection = new SqliteConnection(path))
+            {
+
+                connection.Open();
+                SqliteCommand command = connection.CreateCommand();
+                command.CommandText = @"SELECT SUM(d.Preis) as Umsatz FROM Termine t JOIN Dienstleistungen d ON t.DienstID = d.DienstID;";
+                
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Umsatz = $"{Convert.ToString(reader.GetInt32(0))}€";
+                    }
+                    
+                }
+
+            }
+            return Umsatz;
+        }
 
         public void UpdateTermin(Termin oldTermin, Termin newTermin)
         {

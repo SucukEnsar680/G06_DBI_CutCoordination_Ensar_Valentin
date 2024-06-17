@@ -30,6 +30,7 @@ namespace G06_DBI_CutCoordination
 
 			this.currentDate = DateTime.Today;
 			terminsView.ItemsSource = this.TerminList.GetTodayTermins(this.currentDate);
+			UmsatzText.Text = this.TerminList.GetUmsatz();
 		}
 		#endregion
 
@@ -110,7 +111,9 @@ namespace G06_DBI_CutCoordination
 
 			this.TerminList = addTermin.Termins;
 			this.TerminList.GetTodayTermins(this.currentDate);
-		}
+            terminsView.ItemsSource = this.TerminList.GetTodayTermins(this.currentDate);
+            UmsatzText.Text = this.TerminList.GetUmsatz();
+        }
 
 		private void EditBtn_Click(object sender, RoutedEventArgs e)
 		{
@@ -123,7 +126,8 @@ namespace G06_DBI_CutCoordination
 
 				this.TerminList = addTermin.Termins;
 				terminsView.ItemsSource = this.TerminList.GetTodayTermins(this.currentDate);
-			}
+                UmsatzText.Text = this.TerminList.GetUmsatz();
+            }
 		}
 
 		private void RemoveBtn_Click(object sender, RoutedEventArgs e)
@@ -132,8 +136,10 @@ namespace G06_DBI_CutCoordination
 			{
 				Termin selectedTermin = (Termin)terminsView.SelectedItem;
 				this.TerminList.RemoveTermin(selectedTermin);
+				TerminManager.RemoveTermin(selectedTermin.Id);
 				terminsView.ItemsSource = this.TerminList.GetTodayTermins(this.currentDate);
-			}
+                UmsatzText.Text = this.TerminList.GetUmsatz();
+            }
 		}
 
 		private void calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
