@@ -42,7 +42,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Dauer" FontSize="20" FontWeight="Bold" Margin="10"/>
-                    <TextBox x:Name="Dauer" FontSize="20" Width="80" Margin="10" GotFocus="Dauer_GotFocus"/>
+                    <TextBox x:Name="Dauer" FontSize="20" Height="28" Width="80" Margin="10" GotFocus="Dauer_GotFocus" LostFocus="Dauer_LostFocus"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Dienstleistung" FontSize="20" FontWeight="Bold" Margin="10"/>

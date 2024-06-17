@@ -9,7 +9,7 @@
         Background="Transparent"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Height="550" Width="950"
+        Height="550" Width="1000"
         MouseDown="Window_MouseDown" Cursor="">
 
     <Grid Background="White" x:Name="mainGrid">
@@ -28,7 +28,7 @@
 
         <Border Background="#e9ecef" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="10,10,0,0" BorderBrush="#38383A" BorderThickness="1">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <TextBlock Margin="0,0,700,0" Text="CutCoordination" x:Name="headLine" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Edwardian Script ITC"/>
+                <TextBlock Margin="0,0,750,0" Text="CutCoordination" x:Name="headLine" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Edwardian Script ITC"/>
                 
                 <Image Source="/assets/title_minimize.png" Width="17" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMinimize_MouseDown" Cursor="Hand"/>
                 <Image Source="/assets/title_maximize.png" Width="17" Height="Auto" Margin="0,0,15,0" MouseDown="TitleMaximize_MouseDown" Cursor="Hand"/>
@@ -47,7 +47,7 @@
                     <GridViewColumn Header="Uhrzeit" DisplayMemberBinding="{Binding Uhrzeit}" Width="70"/>
                     <GridViewColumn Header="Dauer" DisplayMemberBinding="{Binding Dauer}" Width="70"/>
                     <GridViewColumn Header="Telefonnummer" DisplayMemberBinding="{Binding Telefonnummer}" Width="120"/>
-                    <GridViewColumn Header="Dienst" DisplayMemberBinding="{Binding DienstName}" Width="70"/>
+                    <GridViewColumn Header="Dienst" DisplayMemberBinding="{Binding DienstName}" Width="120"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -58,7 +58,7 @@
             <Button x:Name="removeBtn" Content="Remove" Grid.Row="3" Margin="20" Grid.Column="2" Width="200" Height="100"  FontSize="20" Click="RemoveBtn_Click"/>
         </StackPanel>
 
-        <TextBlock  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,195,0,0" Text="Gesamt Umsatz:" Foreground="White" FontSize="20" FontWeight="Bold" />
+        <TextBlock  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" Text="Gesamt Umsatz:" Foreground="White" FontSize="20" FontWeight="Bold" />
         <TextBlock x:Name="UmsatzText" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" TextAlignment="Center" FontSize="30" Width="160" Background="Black" Foreground="LightGreen" FontFamily="Castellar" />
 
     </Grid>

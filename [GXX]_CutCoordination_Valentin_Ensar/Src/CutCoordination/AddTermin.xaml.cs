@@ -27,8 +27,9 @@ namespace G06_DBI_CutCoordination
             InitializeComponent();
             this.Termins = termins;
             this.EditingTermin = editingTermin;
-            Dauer.FontFamily = new FontFamily("lightgray");
+            Dauer.Foreground = Brushes.LightGray;
             Dauer.Text = "min";
+            Uhrzeit.Text = "00:00";
             if (Edit == true && editingTermin != null)
             {
                 Vorname.Text = editingTermin.Vorname;
@@ -83,7 +84,20 @@ namespace G06_DBI_CutCoordination
 
         private void Dauer_GotFocus(object sender, RoutedEventArgs e)
         {
-            Da
+            if(Dauer.Text == "min")
+            {
+                Dauer.Text = "";
+                Dauer.Foreground = Brushes.Black;
+            }
+        }
+
+        private void Dauer_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (Dauer.Text == "")
+            {
+                Dauer.Text = "min";
+                Dauer.Foreground = Brushes.LightGray;
+            }
         }
     }
 }

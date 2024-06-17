@@ -134,9 +134,11 @@ namespace G06_DBI_CutCoordination
 		{
 			if (terminsView.SelectedItem != null)
 			{
-				Termin selectedTermin = (Termin)terminsView.SelectedItem;
-				this.TerminList.RemoveTermin(selectedTermin);
-				TerminManager.RemoveTermin(selectedTermin.Id);
+                
+                Termin selectedTermin = (Termin)terminsView.SelectedItem;
+                TerminManager.RemoveTermin(selectedTermin.Id);
+                this.TerminList.RemoveTermin(selectedTermin);
+				
 				terminsView.ItemsSource = this.TerminList.GetTodayTermins(this.currentDate);
                 UmsatzText.Text = this.TerminList.GetUmsatz();
             }
