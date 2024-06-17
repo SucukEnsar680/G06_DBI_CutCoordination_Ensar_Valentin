@@ -27,9 +27,17 @@ namespace G06_DBI_CutCoordination
             InitializeComponent();
             this.Termins = termins;
             this.EditingTermin = editingTermin;
-            Dauer.Foreground = Brushes.LightGray;
-            Dauer.Text = "min";
-            Uhrzeit.Text = "00:00";
+           
+            if (Dauer.Text == "")
+            {
+                Dauer.Foreground = Brushes.LightGray;
+                Dauer.Text = "min";
+            }
+            if(Uhrzeit.Text == "")
+            {
+                Uhrzeit.Text = "00:00";
+            }
+            
             if (Edit == true && editingTermin != null)
             {
                 Vorname.Text = editingTermin.Vorname;

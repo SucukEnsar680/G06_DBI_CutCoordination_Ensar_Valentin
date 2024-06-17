@@ -29,6 +29,10 @@ UPDATE Termine SET Vorname = @Vorname, Nachname = @Nachname, Telefonnummer = @Te
 INSERT INTO Termine (Vorname, Nachname, Telefonnummer, Datum, Uhrzeit, Dauer, DienstID) VALUES (@Vorname, @Nachname, @Telefonnummer, @Datum, @Uhrzeit, @Dauer, @DienstID)
 ```
 
+```sql
+SELECT SUM(d.Preis) as Umsatz FROM Termine t JOIN Dienstleistungen d ON t.DienstID = d.DienstID;
+```
+
 
 ## Wer macht was
 ### Ensar
@@ -44,7 +48,9 @@ INSERT INTO Termine (Vorname, Nachname, Telefonnummer, Datum, Uhrzeit, Dauer, Di
 | 04.06.2024 |AddWindow gestyltet                                                                           |
 | 12.06.2024 |neue Termine werden in Datenbank hinzugefügt                                                  |
 | 13.06.2024 |Datepicker in AddWindow                                                                       |
+| 15.06.2024 |Design für MainWindow(wurde nicht übernommen)                                                 |
 | 16.06.2024 |Einträge können nun editiert werden * eigene schließen bar designed                           |
+| 17.06.2024 |Gesamtumsatz wird Angezeigt + placeholder in addwindow für dauer und uhrzeit   	            |
 
 ### Valentin
 
@@ -57,3 +63,6 @@ INSERT INTO Termine (Vorname, Nachname, Telefonnummer, Datum, Uhrzeit, Dauer, Di
 | 15.06.2024 |Richtig gestellt das nun Termine hinzugefuegt werden sowie entfernt werden koennen.|
 | 15.06.2024 |Alte Struktur (Listbox) sowie neue Kalender Idee fuer das MainWindow geloescht.|
 | 15.06.2024 |Einen kleinen Kalender nun hinzugefuegt danach eine Gridview fuer denn aktuellen Tag erstellt sowie dabei das alte Daten Design auf das neue angewandt.|
+| 16.06.2024 | Join-Abfrage beim einlesen der Daten hinzugefügt sowie hinzugefügt das nun die Dienstleistungsnamen richtig angzeigt werden anstelle dem Index|
+| 16.06.2024 | Code schöner strukturiert sowie das editieren der bestehenden Termine funktional gemacht|
+| 16.06.2024 | Besseres Design sowie den Remove der Termine auch auf die Datenbank selbst angewandt|

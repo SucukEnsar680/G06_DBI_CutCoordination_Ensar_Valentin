@@ -53,9 +53,9 @@
         </ListView>
         
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
-            <Button x:Name="addBtn" Content="Add" Grid.Row="2" Margin="20" Grid.Column="2" Width="200" Height="100" FontSize="20" Click="AddBtn_Click"/>
-            <Button x:Name="editBtn" Content="Edit" Grid.Row="2" Margin="20" Grid.Column="2" Width="200" Height="100" FontSize="20" Click="EditBtn_Click"/>
-            <Button x:Name="removeBtn" Content="Remove" Grid.Row="3" Margin="20" Grid.Column="2" Width="200" Height="100"  FontSize="20" Click="RemoveBtn_Click"/>
+            <Button x:Name="addBtn" Content="Hinzufügen" Grid.Row="2" Margin="20" Grid.Column="2" Width="200" Height="100" FontSize="20" Click="AddBtn_Click"/>
+            <Button x:Name="editBtn" Content="Bearbeiten" Grid.Row="2" Margin="20" Grid.Column="2" Width="200" Height="100" FontSize="20" Click="EditBtn_Click"/>
+            <Button x:Name="removeBtn" Content="Löschen" Grid.Row="3" Margin="20" Grid.Column="2" Width="200" Height="100"  FontSize="20" Click="RemoveBtn_Click"/>
         </StackPanel>
 
         <TextBlock  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" Text="Gesamt Umsatz:" Foreground="White" FontSize="20" FontWeight="Bold" />
